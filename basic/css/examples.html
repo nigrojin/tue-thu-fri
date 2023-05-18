@@ -7,9 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-
   <!-- <h1>File upload button</h1>
-
   <style>
     label {
       display: inline-block;
@@ -1191,7 +1189,7 @@
   </div> -->
 
 
-  <h1>Pagination</h1>
+  <!-- <h1>Pagination</h1>
 
   <style>
     .item {
@@ -1219,7 +1217,153 @@
     <a href="#" class="item">4</a>
     <a href="#" class="item">5</a>
     <a href="#" class="item">&#10095;</a>
+  </div> -->
+
+
+  <!-- <h1>Tab Content</h1>
+
+  <style>
+    .container {
+      /* border: 1px dashed; */
+      display: flex;
+      /* 아이템의 넓이가 적용된다 */
+      flex-wrap: wrap;
+    }
+
+    label {
+      padding: 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type=radio]:checked + label {
+      border-bottom: 2px solid #0bf;
+      color: #0bf;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    .content {
+      flex-basis: 100%;
+      /* 아이템의 순서 결정 */
+      order: 99;
+      display: none;
+    }
+
+    input[type=radio]:checked + label + .content {
+      display: block;
+    }
+  </style>
+
+  <div class="container">
+    <input type="radio" name="beer" id="tab1" checked>
+    <label for="tab1">Guinness</label>
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      Omnis, officiis doloremque unde optio ex alias non, 
+      reiciendis ducimus quasi tempora nisi itaque et quis 
+      vero aliquid incidunt amet, nesciunt aspernatur.
+    </p>
+
+    <input type="radio" name="beer" id="tab2">
+    <label for="tab2">Heineken</label>
+    <p class="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Dignissimos nostrum nulla ab dolorem aut fugiat placeat delectus 
+      laudantium non aspernatur quam, doloribus voluptatum porro nemo, 
+      praesentium molestias accusamus ipsam! Blanditiis.
+    </p>
+
+    <input type="radio" name="beer" id="tab3">
+    <label for="tab3">Budwiser</label>
+    <p class="content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Neque consequuntur at ut molestias reprehenderit, hic ea ipsum. 
+      Sed excepturi itaque error nisi reiciendis perferendis numquam 
+      vitae dicta, cupiditate, sit ipsam.
+    </p>
+  </div> -->
+
+
+  <h1>Notification Badge</h1>
+
+  <style>
+    .container {
+      /* border: 1px dashed; */
+      display: inline-block;
+      position: relative;
+    }
+
+    .bell {
+      width: 2rem;
+    }
+
+    .badge {
+      width: 1.25rem;
+      height: 1.25rem;
+
+      position: absolute;
+      top: 0;
+      right: -0.5rem;
+
+      background-color: #f00;
+      color: #fff;
+
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <div class="container">
+    <span class="badge">2</span>
+    <svg 
+      class="bell"
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 448 512"
+    >
+      <path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+    </svg>
   </div>
+
+
+  <h1>Spinner</h1>
+
+  <style>
+    #spinner {
+      width: 3rem;
+      height: 3rem;
+      border: 4px solid #ddd;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+
+      animation-name: spin;
+      /* 애니메이션이 한번 실행되는 데 걸리는 시간 */
+      animation-duration: 1.5s;
+      /* 애니메이션의 반복 횟수 */
+      animation-iteration-count: infinite;
+      /* 애니메이션의 속도 조절 */
+      animation-timing-function: linear;
+    }
+
+    /* 애니메이션 정의 */
+    @keyframes spin {
+      from {
+        transform: rotate(0deg)
+      } to {
+        transform: rotate(360deg)
+      }
+    }
+  </style>
+
+  <div id="spinner"></div>
+  
+  
   
 </body>
 </html>

@@ -583,3 +583,394 @@
 // var result = age >= 18 ? "성인입니다" : "성인이 아닙니다"
 
 // console.log(result);
+
+
+/*
+  반복문
+  반복적인 작업을 수행한다
+
+  1 for 반복문
+  2 while 반복문
+*/
+
+
+// for 반복문
+
+// for (var i = 1; i <= 10; i++) { // 블록
+//   console.log(i + "번 실행되었습니다")
+// }
+
+// 1부터 10까지의 합을 구하시오
+
+// var sum = 0;
+
+// for (var i=1; i<=10; i++) {
+//   sum += i; // 더하기 대입 연산자, sum = sum + i
+// }
+
+// console.log(sum);
+
+
+// while 반복문
+
+// var i = 1; // 변수 초기화
+
+// while (i <= 10) { // while (조건)
+//   console.log(i + "번 실행되었습니다");
+
+//   // 변수값 증가
+//   i++;
+// }
+
+
+
+// 1 + 1/2 + 1/3 + ... 1/10 까지의 합을 구하세요 lol
+// for 반복문 이용 
+
+
+// var sum = 0;
+
+// for (var i=1; i<=10; i++) {
+//   sum += (1/i);
+// }
+
+// console.log(sum);
+
+
+/*
+  변수
+  값을 저장하는 컨테이너
+
+  1 기본 사용
+  2 변수의 범위
+*/
+
+
+// 1 기본 사용
+
+// var foo = "bar"; // 변수 초기화
+
+// console.log(foo);
+
+
+// var foo = "bar" // 변수초기화
+
+// foo = "baz" // 값을 재할당 가능
+
+// console.log(foo)
+
+
+// var foo; // 변수 선언
+
+// foo = "bar"; // 나중에 값 할당 가능
+
+// console.log(foo)
+
+
+// 2 변수의 범위
+
+
+// 전역변수 (global)
+
+// 함수 밖에서 선언된 변수. 소스코드 어디에서든지 접근 가능하다
+// var varInGlobal = true;
+
+// console.log(varInGlobal); // 접근 가능
+
+
+// 지역 변수 (local)
+// 함수 내에서 선언된 변수. 해당 함수 내에서만 접근 가능하다
+
+// function f() {
+//   var varInFunction = true;
+// }
+
+// console.log(varInFunction); // varInFunction is not defined
+
+
+/*
+  함수
+  호출할 때만 실행되는 코드
+
+  1 함수 선언
+  2 Hoisting
+  3 매개변수와 인자
+  4 return
+  5 callback
+*/
+
+
+/*
+  함수 선언 방법
+
+  1 함수 선언식
+  2 함수 표현식
+*/
+
+
+// 1 함수 선언식
+// function 함수이름() {함수정의}
+
+// function f() {
+//   console.log("foo")
+// }
+
+// f(); // 함수 호출
+
+
+// 2 함수 표현식
+// 변수에 익명함수를 할당한다
+
+// var f = function () {
+//   console.log("foo")
+// }
+
+// f(); // 호출
+
+
+/*
+  2 Hoisting (게양)
+
+*/
+
+
+// f()
+
+// // 함수 선언이 호출 시점보다 위로 올라간다
+// // 함수 선언식에만 해당된다
+// function f() {
+//   console.log("foo")
+// }
+
+
+// f() // f is not defined
+
+// var f = function () {
+//   console.log("foo")
+// }
+
+
+// 3 매개변수와 인자
+
+
+// function add(x, y) { // x, y: 매개변수 (인자를 치환한 변수)
+//   console.log("결과:", x + y);
+// }
+
+// add(1, 2); // 1,2: 인자 (함수에 실제로 전달되는 값)
+
+
+
+// 4 return
+
+// function add(x, y) {
+//   return x + y; // 함수가 결과를 반환한다
+// }
+
+// var r = add(1, 2);
+
+// console.log(r)
+
+
+// 5 callback
+// 함수 인자
+
+// function f(callback) {
+//   let r = callback(); // callback 호출
+//   console.log(r);
+// }
+
+// function cb() {
+//   return "foo"
+// }
+
+// f(cb); // cb: callback
+
+
+// 콜백의 예시
+
+// function getTime() {
+
+//   // 현재 시간을 리턴하는 함수
+//   var time = new Date().toLocaleTimeString();
+
+//   console.log(time);
+// }
+
+// // setInterval(callback, ms)
+// // ms마다 callback을 실행한다
+// // 1000ms = 1s
+// setInterval(getTime, 1000);
+
+
+
+// Q. 나이가 18세 이상이면 "성인입니다" 그렇지 않으면 "성인이 아닙니다"를 출력하는
+// 함수를 선언해보세요
+// (나이를 인자로 전달하세요)
+
+
+// function isAdult(age) {
+
+//   if (typeof age !== "number") {
+//     console.log("인자는 숫자만 가능합니다");
+//     return; // 함수의 실행을 중단한다
+//   }
+
+//   if (age >= 18) {
+//     console.log("성인입니다")
+//   } else {
+//     console.log("성인이 아닙니다")
+//   }
+// }
+
+// isAdult(20);
+
+
+
+/*
+  배열 (Array)
+  한개 이상의 값을 갖는 데이터 타입
+
+  1 배열의 아이템에 접근하기
+  2 배열 메소드
+  3 배열 순회하기
+*/
+
+
+// 1 아이템에 접근하기
+
+// var arr = ["foo", "bar", "baz"]; // 배열
+
+
+// console.log(arr[0]); // foo
+
+// console.log(arr[1]) // bar
+
+// console.log(arr[2]) // baz
+
+
+// console.log(arr.length) // 3
+
+
+// 아이템 수정
+// arr[2] = "BAZ"
+
+// console.log(arr)
+
+
+// arr[3] = "lol" // 아이템 추가
+
+// console.log(arr);
+
+
+
+/*
+  배열의 메서드
+  배열에 특정한 작업을 수행한다
+
+  Array.push()
+  Array.pop()
+  Array.concat()
+  Array.sort()
+*/
+
+
+// push()
+
+// var arr = ["foo", "bar"];
+
+// arr.push("baz"); // push(newItem1, newItem2, ..): 새로운 아이템을 추가한다
+
+// console.log(arr); // foo, bar, baz
+
+
+// pop()
+
+// var arr = ["foo", "bar", "baz"];
+
+// arr.pop(); // 가장 마지막의 아이템 1개를 제거한다
+
+// console.log(arr); // foo, bar
+
+
+// concat()
+
+// var arr1 = ["foo", "bar"];
+// var arr2 = ["baz", "lol"];
+
+// // Array1.concat(Array2): Array2를 Array1뒤에 연결한다
+// // concat: concatenate
+// var r = arr1.concat(arr2); 
+
+// console.log(r) // foo, bar, baz, lol
+
+
+// sort()
+
+// var arr = ["foo", "bar", "baz"];
+
+// arr.sort(); // 값이 문자열일 경우, 알파벳순으로 정렬한다
+
+// console.log(arr); // bar, baz, foo
+
+
+/*
+  객체 (Object)
+
+  데이터와 함수의 집합
+*/
+
+
+// var cat = {
+//   // 속성 (property)
+//   name: "치즈",
+//   home: null,
+//   // 속성 값이 함수인 것을 메서드(Method)라고 한다
+//   sound: function () {
+//     return "야옹"
+//   }
+// }
+
+
+// // cat에 접근하기
+
+// console.log(cat.name) // 치즈
+// console.log(cat["name"]) // 치즈
+
+// console.log(cat.home) // null
+
+// console.log(cat.color) // undefined
+
+// console.log(cat.sound()) // 야옹
+
+
+// // 속성 추가
+
+// cat.age = 2;
+
+// console.log(cat.age); // 2
+
+
+// // 속성 변경
+
+// cat.home = "삼산동" // (입양됨)
+
+// console.log(cat.home); // 삼산동
+
+
+// // 속성 삭제
+// delete cat.age;
+
+// console.log(cat.age); // undefined;
+
+
+var beers = [
+  { name: "기네스", origin: "아일랜드"},
+  { name: "하이네켄", origin: "네덜란드"},
+  { name: "버드와이저", origin: "미국"},
+]
+
+// 하이네켄의 원산지에 접근해보세요
+
+console.log(beers[1].origin); // 네덜란드
+

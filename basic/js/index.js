@@ -914,6 +914,51 @@
 // console.log(arr); // bar, baz, foo
 
 
+
+/*
+  배열 순회하기
+
+  배열에 특정한 작업을 수행할 수 있다
+*/
+
+
+// var arr = ["foo", "bar", "baz"];
+
+// for (var i=0; i<arr.length; i++) {
+//   // 변수 i를 배열의 인덱스로 사용했다
+//   console.log(arr[i].toUpperCase());
+// }
+
+
+// var arr = ["foo", "bar", "baz"];
+
+// // 필터링
+// for (var i=0; i<arr.length; i++) {
+//   if (arr[i][0] === "b") { // b로 시작하는 값
+//     console.log(arr[i]); // bar, baz
+//   }
+// }
+
+// Q. 배열의 메서드를 사용해서 버드와이저를 맥주리스트에 추가해보세요
+// var beers = ["Guinness", "Heineken"];
+// var americanBeer = "Budwiser";
+
+// beers.push(americanBeer);
+
+// console.log(beers)
+
+
+// Q. 성인의 나이만 출력해보세요 (배열 순회하기)
+// var ages = [12, 19, 23, 30];
+
+// for (var i=0; i<ages.length; i++) {
+//   if (ages[i] >= 18) {
+//     console.log(ages[i]);
+//   }
+// }
+
+
+
 /*
   객체 (Object)
 
@@ -964,13 +1009,306 @@
 // console.log(cat.age); // undefined;
 
 
-var beers = [
-  { name: "기네스", origin: "아일랜드"},
-  { name: "하이네켄", origin: "네덜란드"},
-  { name: "버드와이저", origin: "미국"},
-]
+// var beers = [
+//   { name: "기네스", origin: "아일랜드"},
+//   { name: "하이네켄", origin: "네덜란드"},
+//   { name: "버드와이저", origin: "미국"},
+// ]
 
-// 하이네켄의 원산지에 접근해보세요
+// // 하이네켄의 원산지에 접근해보세요
 
-console.log(beers[1].origin); // 네덜란드
+// console.log(beers[1].origin); // 네덜란드
 
+
+
+/*
+  클래스 (Class)
+  객체를 생성하기 위한 템플릿(틀)
+
+  1 인스턴스
+  2 static 속성과 static 메서드
+  3 내장 클래스
+  4 리터럴 표기법
+*/
+
+
+// 클래스와 인스턴스
+
+// class Cat {
+//   // 생성자 함수: 인스턴스의 속성을 생성한다
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   // 클래스 멤버 (속성)
+//   home = null;
+
+//   // 클래스 멤버 (메서드)
+//   sound() {
+//     return "야옹"
+//   }
+// }
+
+
+// // Cat의 인스턴스
+// var cat = new Cat("치즈", 2);
+
+// console.log(cat);
+// console.log(cat instanceof Cat); // true
+
+
+// // 인스턴스는 클래스로부터 멤버를 상속받는다
+// // 코드의 재사용성
+
+// console.log(cat.home) // null
+// console.log(cat.sound()) // 야옹
+
+// console.log(cat.name) // 치즈
+// console.log(cat.age) // 2
+
+
+/*
+  2 static 속성과 static 메서드
+
+  클래스와 인스턴스와 관련된 유용한 기능을 제공한다
+*/
+
+// class Cat {
+
+//   // ... (생성자 함수, 클래스 멤버 등)
+
+//   static family = "고양이과";
+
+//   static isAdult(age) {
+//     if (age < 1) {
+//       return "아기고양이"
+//     } else {
+//       return "성체고양이"
+//     }
+//   }
+// }
+
+// // 클래스 자체가 호출한다
+// console.log(Cat.family) // 고양이과
+// console.log(Cat.isAdult(2)) // 성체고양이
+
+
+// var pi = Math.PI; // Math클래스의 static 속성
+
+// console.log(pi);
+
+
+/*
+  자바스크립트에 내장된 클래스
+
+  1 문자처리: String
+  2 숫자 및 날짜: Number, Math, Date
+  3 인덱스가 있는 컬렉션: Array
+  4 에러: SyntaxError, ReferenceError, 기타 에러
+  5 기타: Promise, JSON, Object
+*/
+
+
+/*
+  리터럴 표기법
+*/
+
+
+// var foo = new String("bar");
+// String 클래스의 인스턴스 foo
+// console.log(foo); // [String: 'bar']
+
+
+// var foo = "bar"; // 리터럴 표기법으로 인스턴스 생성
+
+// String 클래스의 인스턴스 foo
+// console.log(foo);
+
+
+// var year = new Number(2023);
+
+// Number 클래스의 인스턴스 year
+// console.log(year)
+
+// var year = 2023; // 리터럴 표기법으로 인스턴스 생성
+// console.log(year)
+
+
+// var o = new Object({ prop1: "foo", prop2: "bar" });
+
+// console.log(o);
+
+// var o = { prop1: "foo", prop2: "bar" };
+
+// console.log(o); // 리터럴 표기법으로 인스턴스 생성
+
+
+// 객체 ?
+
+// {key: value}
+
+// var foo = "bar"; // 객체 (속성과 메서드를 가지고 있다)
+
+// console.log(foo.toUpperCase()) // foo의 메서드
+
+
+
+/*
+  Q. 클래스
+
+  다음의 조건을 가진 클래스를 정의해보고 인스턴스를 생성해보세요
+
+  클래스 이름: Beer
+
+  인스턴스의 속성: name, origin
+
+  클래스 멤버(속성)
+  history: 기원전 3000년
+
+  클래스 멤버(메서드)
+  recipe(제조법): 밀, 홉, 효모, 물
+
+  static 속성
+  caution(주의): 지나친 음주는 돈이 많이 듭니다
+*/
+
+
+
+// class Beer {
+//   constructor(name, origin) {
+//     this.name = name;
+//     this.origin = origin;
+//   }
+
+//   history = "기원전 3000년";
+
+//   recipe() {
+//     return "밀, 홉, 효모 물";
+//   }
+
+//   static caution = "지나친 음주는 돈이 많이 듭니다"
+// }
+
+
+// var irishBeer = new Beer("기네스", "아일랜드");
+// var dutchBeer = new Beer("하이네켄", "네덜란드");
+
+// // Beer클래스의 인스턴스
+// console.log(irishBeer);
+// console.log(dutchBeer);
+
+// // static 속성
+// console.log(Beer.caution)
+
+
+
+/*
+  에러와 에러처리
+
+  1 에러 개념
+  2 에러 처리
+  3 에러의 종류
+  4 커스텀 에러
+*/
+
+
+/*
+  1 에러 개념
+  에러는 프로그램을 중단시킨다
+  에러는 반드시 처리되어야 한다
+*/
+
+
+// console.log(foo);
+
+
+
+/*
+  2 에러처리
+  try / catch
+*/
+
+
+// try { // 코드를 작성한다
+
+//   // ...
+
+//   console.log(foo)
+
+// } catch (error) { // 에러 처리
+//   console.error(error);
+// }
+
+
+/*
+  3 에러의 종류
+
+  SyntaxError
+  ReferenceError
+  TypeError
+  RangeError
+  URIError
+*/
+
+
+// ReferenceError
+
+// 존재하지 않는 변수를 참조할 때
+// console.log(foo) // foo is not defined
+
+
+
+// SyntaxError (문법에러)
+
+/*
+  SyntaxError는 컴파일 에러를 발생시킨다
+  에러 처리를 할 수 없다 (try / catch)
+*/
+
+// console.log(2023)) // Unexpected token ')'
+
+
+
+// TypeError
+// 변수, 매개변수가 유효한 타입이 아닐 때
+
+// setInterval(callback, ms)
+// setInterval(null, 1000);
+
+
+// RangeError
+// 변수가 정해진 범위를 벗어났을 때 발생한다
+
+// var pi = Math.PI;
+
+// console.log(pi.toPrecision(200))
+
+
+// URIError
+
+// console.log(decodeURI("%")); // URI malformed
+
+
+/*
+  커스텀 에러
+  필요할 경우 에러를 발생시킨다
+*/
+
+
+// try {
+//   var age = 15;
+
+//   console.log("학생:", "아저씨 담배하나 주세요");
+
+//   if (age < 18) {
+//     // 커스텀 에러를 던진다
+//     throw "미성년자는 담배를 살 수 없습니다"
+//   }
+
+//   // 실행되지 않는다
+//   console.log("CU직원:", "네 여기있습니다")
+
+// } catch (error) { // 에러 처리
+//   console.error(error);
+// }

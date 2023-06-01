@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML과 자바스크립트</title>
+</head>
+<body>
+
+  <!-- <h1>HTML과 자바스크립트</h1>
+
+  <pre>
+    1 윈도우 객체
+    2 자바스크립트 선택자
+    3 엘리먼트의 속성과 메서드
+    4 이벤트
+    5 그래픽 (canvas)
+  </pre> -->
+
+  <!-- <h1>window 객체</h1>
+  <p>웹개발을 하기 위한 도구모음</p>
+
+  <script>
+    // console.log(window);
+
+    /*
+      메시지 관련 속성
+      alert, confirm 등
+    */
+
+    // window.alert("제출되었습니다");
+
+    // window.confirm("제출하시겠습니까?")
+
+
+    /*
+      유저데이터에 접근
+    */
+
+    // 유저의 지리적 위치 정보
+    // console.log(window.navigator.geolocation);
+    // 접속 기기 정보
+    // console.log(window.navigator.userAgent);
+    // 접속 URL 정보
+    // console.log(window.location);
+
+
+    /*
+      브라우징 기록
+    */
+
+    // 앱 내에서 뒤로가기 버튼 개발 등
+    // console.log(window.history);
+
+    /*
+      서버에 데이터 요청하는 기능
+    */
+
+    // console.log(window.fetch)
+    // console.log(window.XMLHttpRequest)
+
+
+    /*
+      웹 스토리지
+      브라우저에 데이터를 저장하는 기능을 제공한다
+      예) 로그인 토큰, 테마, 쇼핑 카트 등
+    */
+
+    // console.log(window.document.cookie); // 쿠키
+    // console.log(window.localStorage); // 로컬 스토리지
+
+
+    /*
+      뷰 개발
+    */
+
+    // console.log(window.document); // HTML 문서
+    // console.log(window.innerWidth); // 뷰포트의 넓이
+    // console.log(window.pageYOffset); // 문서 탑과 뷰포트 탑사이의 거리
+  </script> -->
+
+
+  <!-- <h1>자바스크립트 선택자</h1>
+  <pre>
+    id 선택자
+    class 선택자
+  </pre> -->
+
+
+  <!-- <h1>id 선택자</h1>
+
+  
+  <ul>
+    <li id="foo">foo</li>
+    <li>bar</li>
+    <li>baz</li>
+  </ul>
+
+  <script>
+    var foo = document.getElementById('foo');
+
+    console.log(foo); // li#foo
+  </script> -->
+
+
+  <!-- <h1>class 선택자</h1>
+  
+  <ul>
+    <li class="item">foo</li>
+    <li class="item">bar</li>
+    <li class="item">baz</li>
+  </ul>
+
+  <script>
+    var items = document.getElementsByClassName('item');
+
+    console.log(items); // HTMLCollection(length)
+
+    console.log(items[0]) // foo
+    console.log(items.length) // 3 
+  </script> -->
+
+
+  <!-- <h1>엘리먼트의 속성과 메서드</h1>
+  <pre>
+    1 innerHTML
+    2 classList
+    3 attribute
+    4 createElement
+  </pre> -->
+
+
+  <!-- <h1>innerHTML</h1>
+  <p>
+    내부의 트리를 문자열 타입으로 저장한다
+  </p>
+
+  <div id="container">
+    <ul>
+      <li>foo</li>
+      <li>bar</li>
+      <li>baz</li>
+    </ul>
+  </div>
+
+  <script>
+    var container = document.getElementById("container");
+
+    console.log(container.innerHTML); // list
+    console.log(typeof container.innerHTML) // string
+
+
+    // innerHTML 업데이트
+    container.innerHTML = (`
+      <ul>
+        <li>Heineken</li>
+        <li>Guinness</li>
+        <li>Budwiser</li>
+      </ul>
+    `);
+  </script> -->
+
+  <!-- <h1>classList</h1>
+  <p>클래스 리스트를 저장한다</p>
+
+  <style>
+    .text-italic {
+      font-style: italic;
+    }
+    .underline {
+      text-decoration: underline;
+    }
+    .font-bold {
+      font-weight: bold;
+    }
+  </style>
+  
+  <ul>
+    <li id="foo" class="font-bold text-italic">foo</li>
+    <li>bar</li>
+    <li>baz</li>
+  </ul>
+
+  <script>
+    var foo = document.getElementById("foo");
+
+    console.log(foo.classList); // DOMTokenList(length)
+
+    // 클래스 추가하기
+    foo.classList.add("underline");
+
+    // 클래스 제거하기
+    foo.classList.remove("font-bold");
+  </script> -->
+
+
+  <!-- <h1>attribute</h1>
+
+  <input 
+    type="search" 
+    id="input"
+    name="q" 
+    style="padding: 0.5rem; border: 1px solid #ddd; width: 16rem"
+    placeholder="구글 검색"
+    autocomplete="off"
+  >
+
+<script>
+
+  var input = document.getElementById('input');
+
+  // 애트리뷰트에 접근하기
+  console.log(input.type) // search
+  console.log(input.id) // input
+  console.log(input.name) // q
+  console.log(input.style.padding) // 0.5rem
+  console.log(input.style.width) // 16rem
+  console.log(input.placeholder) // 구글 검색
+  console.log(input.autocomplete) // off
+
+  // 애트리뷰트 수정
+  input.placeholder = "네이버 검색";
+
+</script> -->
+
+
+  <!-- <h1>createElement</h1>
+  <p>엘리먼트를 생성한다</p>
+
+  <ul id="list">
+    <li>foo</li>
+    <li>bar</li>
+  </ul>
+  
+  <script>
+    var list = document.getElementById("list");
+
+    // li 엘리먼트 생성
+    var li = document.createElement("li");
+
+    // 엘리먼트의 텍스트
+    li.textContent = "baz"
+
+    // 문서에 추가
+    list.appendChild(li); // list의 마지막에 li를 추가한다
+
+  </script> -->
+
+
+  <h1>Q. createElement</h1>
+
+  <ul id="list"></ul>
+  
+  <script>
+    // 다음의 배열을 사용해서 리스트를 만들어보세요
+    var arr = ["foo", "bar", "baz"];
+    var list = document.getElementById("list");
+
+    for (var i=0; i<arr.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = arr[i];
+      list.appendChild(li);
+    }
+  </script>
+
+  
+</body>
+</html>

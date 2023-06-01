@@ -1312,3 +1312,87 @@
 // } catch (error) { // 에러 처리
 //   console.error(error);
 // }
+
+
+/*
+  비동기 작업
+  블로킹(blocking)을 방지하기 위해 사용된다
+  예) 서버에 데이터를 요청하는 작업 등
+
+  1 동기 작업
+  2 비동기 작업
+*/
+
+
+// 1 동기 작업
+// 코드가 순서대로 실행된다
+// 대부분의 작업은 동기 작업이다
+
+// function f() {
+//   console.log("foo")
+// }
+
+
+// f();
+// console.log("bar");
+
+
+// 2 비동기 작업
+// 서버에 데이터를 요청하는 예시
+// 빠른 것부터 실행된다
+
+// 서버에 데이터를 요청하는 함수
+// function fetchData(callback) {
+//   var data = { foo: "bar" };
+
+//   setTimeout(function () {
+//     callback(data);
+//   }, 1000)
+// }
+
+// // 서버가 응답을 하는 데 1초가 걸린다고 가정한다
+// fetchData(function (data) {
+//   console.log("서버로부터 전송받은 데이터:", data)
+// })
+
+// console.log("다음 작업")
+
+
+/*
+  JSON (JavaScript Object Notation)
+  자바스크립트 객체를 저장하거나 전송하기 위한 포맷
+
+  1 객체와 JSON
+  2 JSON.stringify()
+  3 JSON.parse()
+*/
+
+
+// 1 객체와 JSON
+
+// var o = { foo: "bar" }; // 객체
+// var json = '{ "foo": "bar" }'; // JSON
+
+// console.log(typeof o) // object
+// console.log(typeof json) // string
+
+
+// JSON.stringify()
+// 객체를 JSON으로 변환한다
+
+// var o = { foo: "bar" };
+// var json = JSON.stringify(o);
+
+// console.log(json) // { "foo": "bar" }
+// console.log(typeof json); // string
+
+
+// JSON.parse()
+// JSON을 객체로 변환한다
+
+// var json = '{ "foo": "bar" }';
+// var o = JSON.parse(json);
+
+// console.log(o) // 객체 { foo: "bar" }
+// console.log(typeof o) // object
+

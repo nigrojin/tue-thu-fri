@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 예제</title>
+</head>
+<body>
+
+  <!-- <style>
+    #btn {
+      width: 2rem;
+      cursor: pointer;
+      fill: #ddd;
+    }
+
+    #btn.active {
+      fill: #05f;
+    }
+  </style>
+
+  <h1>좋아요 버튼</h1>
+
+  <svg 
+    id="btn"
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 512 512"
+  >
+    <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
+  </svg>
+
+  <script>
+    var btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function () {
+      //  toggle(): 클래스가 있으면 제거하고 없으면 추가한다
+      btn.classList.toggle("active");
+    })
+  </script> -->
+
+  <!-- <style>
+      #container {
+        position: relative;
+        display: inline-block;
+      }
+
+      #input {
+        padding: 0.5rem;
+        width: 16rem;
+      }
+
+      #btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 0 1rem;
+        font-weight: 600;
+      }
+  </style>
+
+  <h1>password toggle</h1>
+
+  <div id="container">
+    <input id="input" type="password" value="123">
+    <button id="btn">Show</button>
+  </div>
+
+  <script>
+    var input = document.getElementById("input");
+    var btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function () {
+      console.log(input.type); // password
+
+      if (input.type === "text") {
+        input.type = "password"
+        btn.textContent = "Show";
+      } else {
+        input.type = "text"
+        btn.textContent = "Hide";
+      }
+    })
+  </script> -->
+
+  <!-- <style>
+    #container {
+      display: inline;
+    }
+
+    #btn {
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: #888;
+      padding: 0;
+    }
+
+    #btn.hidden {
+      display: none;
+    }
+  </style>
+
+  <h1>더보기 버튼</h1>
+
+  <p id="container">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Itaque ut odit commodi officiis fugiat praesentium, 
+    eum aut tenetur porro sint voluptate repellendus ab laudantium dolor, 
+    quasi id ea obcaecati eaque?
+  </p>
+  
+  <button id="btn">more</button>
+
+  <script>
+    var container = document.getElementById("container");
+    var btn = document.getElementById("btn");
+    var fullContent = container.textContent;
+    // substring(startIndex, endIndex): 문자열에서 특정 구간의 문자를 추출한다
+    var lessContent = fullContent.substring(0, 50) + "...";
+
+    console.log(fullContent)
+    console.log(lessContent)
+
+    // 페이지가 처음 로드되었을 때
+    container.textContent = lessContent;
+
+    // 더보기 버튼을 클릭했을 때
+    btn.addEventListener("click", function () {
+      container.textContent = fullContent;
+      btn.classList.add("hidden");
+    })
+
+  </script> -->
+
+  <!-- <style>
+    html {
+      /* 부드럽게 스크롤된다 */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      height: 2000px;
+    }
+
+    #btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 2rem;
+      cursor: pointer;
+    }
+
+    #btn.invisible {
+      visibility: hidden;
+    }
+  </style>
+
+  <h1>탑버튼</h1>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Molestias, officia eaque. Magni quos minima explicabo magnam laudantium 
+    alias ipsum provident, corrupti culpa voluptas incidunt in, 
+    dolore aliquam et accusantium suscipit.
+  </p>
+
+  <svg 
+    id="btn"
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 512 512"
+    class="invisible"
+  >
+    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM385 231c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/>
+  </svg>
+
+  <script>
+    var btn = document.getElementById("btn");
+
+    window.addEventListener("scroll", function () {
+      // 문서 탑과 뷰포트 탑 사이의 거리
+      var scrollTop = document.documentElement.scrollTop;
+
+      console.log(scrollTop);
+
+      if (scrollTop > 200) {
+        // 탑버튼을 나타나게 한다
+        btn.classList.remove("invisible")
+      } else {
+        // 탑버튼을 사라지게 한다
+        btn.classList.add("invisible")
+      }
+    })
+
+    // 탑버튼을 클릭했을 때
+    btn.addEventListener("click", function () {
+      document.documentElement.scrollTop = 0;
+    })
+  </script> -->
+
+  <style>
+    body {
+      height: 2000px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #btn {
+      border: none;
+      background-color: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    nav {
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      display: block;
+      text-align: center;
+      padding: 0.5rem;
+      text-decoration: none;
+      color: #000;
+      opacity: 0.5;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+
+  <header>
+    <div class="header-inner">
+      <button id="btn">&#9776;</button>
+    </div>
+    <nav class="hidden" id="nav">
+      <ul>
+        <li>
+          <a href="#">Link</a>
+        </li>
+        <li>
+          <a href="#">Link</a>
+        </li>
+        <li>
+          <a href="#">Link</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Top navigation</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, explicabo iure ipsum rerum corrupti rem maiores
+      doloremque porro deserunt illum non sequi! Veritatis perspiciatis vitae enim error. In, magnam officia?</p>
+  </main>
+
+  <script>
+    var btn = document.getElementById("btn");
+    var nav = document.getElementById("nav");
+
+    // 메뉴 버튼을 클릭했을 때
+    btn.addEventListener("click", function () {
+      nav.classList.toggle("hidden");
+    })
+
+    // 빈 공간을 클릭했을 때 처리
+
+    // document에 이벤트 감시자(event listener)를 추가한다
+    // document가 이벤트 감지 영역
+    document.addEventListener("click", function (e) {
+      // e.target: 실제 이벤트가 발생한 엘리먼트
+      console.log(e.target);
+
+      // 문서에서 버튼을 제외한 곳을 클릭했을 경우
+      if (e.target !== btn) {
+        nav.classList.add("hidden");
+      }
+    })
+
+  </script>
+  
+</body>
+</html>

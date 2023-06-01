@@ -195,16 +195,16 @@
   </script> -->
 
 
-  <!-- <h1>attribute</h1>
+<h1>attribute</h1>
 
-  <input 
-    type="search" 
-    id="input"
-    name="q" 
-    style="padding: 0.5rem; border: 1px solid #ddd; width: 16rem"
-    placeholder="구글 검색"
-    autocomplete="off"
-  >
+<input 
+  type="search" 
+  id="input"
+  name="q" 
+  style="padding: 0.5rem; border: 1px solid #ddd; width: 16rem"
+  placeholder="구글 검색"
+  autocomplete="off"
+>
 
 <script>
 
@@ -222,7 +222,7 @@
   // 애트리뷰트 수정
   input.placeholder = "네이버 검색";
 
-</script> -->
+</script>
 
 
   <!-- <h1>createElement</h1>
@@ -248,7 +248,7 @@
   </script> -->
 
 
-  <h1>Q. createElement</h1>
+  <!-- <h1>Q. createElement</h1>
 
   <ul id="list"></ul>
   
@@ -262,7 +262,68 @@
       li.textContent = arr[i];
       list.appendChild(li);
     }
-  </script>
+  </script> -->
+
+
+  <!-- <h1>이벤트 (event)</h1>
+  <p>
+    웹사이트 내에서 유저의 행위
+    예) 스크롤, 클릭, 터치(모바일) 등
+  </p>
+
+  <button id="btn">button</button>
+
+  <script>
+    var btn = document.getElementById("btn");
+
+    // addEventListener(eventName, eventHandler)
+    // eventName 발생시 eventHandler를 실행한다
+    btn.addEventListener("click", function () {
+      alert("lol");
+    })
+  </script> -->
+
+  <!-- <h1>canvas</h1>
+  <pre>
+    HTML에서 자바스크립트로 그래픽을 표현할 때 사용한다
+    예: 그래프, 차트, 사진 편집, 애니메이션 등
+  </pre>
+
+  <style>
+    #canvas {
+      background-color: #000;
+    }
+  </style>
+
+  <canvas 
+    id="canvas" 
+    width="300" 
+    height="200" 
+  >
+  </canvas>
+
+  <script>
+    var c = document.getElementById("canvas");
+    // 펜
+    var ctx = c.getContext("2d");
+
+    // 얼굴
+    ctx.fillStyle = '#0af'; // 채우기 색상
+    // fillRect(x, y, width, height)
+    ctx.fillRect(0, 100, 100, 100); // 배경색이 있는 직사각형을 그리는 메서드
+    
+    // 눈
+    ctx.fillStyle = '#000'
+    ctx.fillRect(20, 120, 20, 20);
+    ctx.fillRect(60, 120, 20, 20);
+
+    // 입
+    ctx.fillStyle = '#000'
+    ctx.fillRect(20, 160, 10, 10);
+    ctx.fillRect(20, 170, 60, 10);
+    ctx.fillRect(70, 160, 10, 10);
+  </script>  -->
+
 
   
 </body>

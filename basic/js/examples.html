@@ -200,7 +200,7 @@
     })
   </script> -->
 
-  <style>
+  <!-- <style>
     body {
       height: 2000px;
     }
@@ -302,6 +302,300 @@
       // 문서에서 버튼을 제외한 곳을 클릭했을 경우
       if (e.target !== btn) {
         nav.classList.add("hidden");
+      }
+    })
+
+  </script> -->
+
+  <!-- <style>
+    body {
+      height: 1000px;
+      margin: 0;
+    }
+
+    header {
+      /* position */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+
+      /* display */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: transparent;
+      /* 애니메이션 효과 */
+      transition: background-color 0.5s;
+    }
+
+    .bg-image {
+      background-image: linear-gradient(to right, #0ef, #0af);
+      height: 400px;
+    }
+
+    .active {
+      background-color: #fff;
+    }
+  </style>
+
+  <header id="header">
+    Transparent NavBar
+  </header>
+
+  <div class="bg-image"></div>
+
+  <script>
+    var header = document.getElementById("header");
+
+    window.addEventListener("scroll", function () {
+      // 문서 탑과 뷰포트 탑 사이의 거리
+      var scrollTop = document.documentElement.scrollTop;
+
+      console.log(scrollTop);
+
+      if (scrollTop > 50) {
+        header.classList.add("active");
+      } else {
+        header.classList.remove("active");
+      }
+    })
+  </script> -->
+
+
+  <!-- <style>
+    #btn {
+      font-size: 2rem;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+    }
+
+    #side-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 16rem;
+      background-color: #fff;
+      transition: 0.2s;
+      /* 포지션 경쟁이 발생할 때 값이 높을수록 우선순위를 갖는다 */
+      z-index: 1;
+    }
+
+    #side-bar h1 {
+      text-align: center;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0 0 0 / 0.2);
+    }
+
+    #side-bar.hidden {
+      left: -16rem;
+    }
+
+    #overlay.hidden {
+      display: none;
+    }
+  </style>
+
+  <button id="btn">&#9776;</button>
+
+  <nav id="side-bar" class="hidden">
+    <h1>Logo</h3>
+    <ul>
+      <li>Menu</li>
+      <li>Menu</li>
+      <li>Menu</li>
+    </ul>
+  </nav>
+
+  <div id="overlay" class="hidden"></div>
+
+  <main>
+    <h1>Side Bar</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Ipsa ipsum voluptatibus perferendis iusto consectetur odio
+      molestiae ratione est nobis facere quas nesciunt non animi commodi error, 
+      vel optio? Aspernatur, vel?</p>
+  </main>
+
+  <script>
+    var btn = document.getElementById("btn");
+    var sideBar = document.getElementById("side-bar");
+    var overlay = document.getElementById("overlay");
+
+    // 메뉴 버튼을 클릭했을 때
+    btn.addEventListener("click", function () {
+      sideBar.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    })
+
+    // 오버레이를 클릭했을 때
+    overlay.addEventListener("click", function () {
+      sideBar.classList.add("hidden");
+      overlay.classList.add("hidden");
+    })
+  </script> -->
+
+  <!-- <style>
+    body {
+      height: 1000px;
+    }
+
+    #header {
+      /* position */
+      position: fixed;
+      top: 0;
+      left: 0;
+      
+      /* size */
+      width: 100%;
+      height: 50px;
+
+      /* display */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      /* style */
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      
+      transition: top 0.2s;
+    }
+
+    #header.hidden {
+      top: -50px;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+  </style>
+
+  <header id="header">
+    Header
+  </header>
+
+  <main>
+    <h1>Switch NavBar</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse ad odio doloremque corrupti architecto quam error
+      natus illo commodi adipisci deleniti eligendi officiis molestiae eum iste, tenetur, rerum, eius fuga.</p>
+  </main>
+
+  <script>
+    var header = document.getElementById("header");
+    var previousScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      var scrollTop = document.documentElement.scrollTop;
+
+      // 이전 시점의 변수(scrollTop)의 값에 접근
+      console.log("이전 스크롤 값:", previousScrollTop);
+      console.log("현재 스크롤 값:", scrollTop);
+
+      if (scrollTop > previousScrollTop) { // 스크롤을 내릴 때
+        header.classList.add("hidden");
+      } else { // 스크롤을 올릴 때
+        header.classList.remove("hidden");
+      }
+
+      previousScrollTop = scrollTop;
+    })
+
+  </script> -->
+
+
+  <h1>Drawer</h1>
+
+  <style>
+    #nav {
+      /* position */
+      position: fixed;
+      left: 0;
+      top: 100vh;
+
+      /* size */
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+
+      /* style */
+      border: 1px solid #ddd;
+      background-color: #fff;
+      border-radius: 1rem 1rem 0 0;
+      
+      /* smooth */
+      transition: top 0.5s;
+    }
+
+    #drawer-handle {
+      /* size */
+      width: 100%;
+      padding: 1rem;
+
+      /* style */
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  </style>
+
+  <nav id="nav" class="hidden">
+    <button id="drawer-handle">Drag me</button>
+    <ul>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+    </ul>
+  </nav>
+
+  <button id="open-btn" type="button">More</button>
+
+
+  <script>
+    var nav = document.getElementById("nav");
+    var drawerHandle = document.getElementById("drawer-handle");
+    var openBtn = document.getElementById("open-btn");
+    var TOP;
+
+    // 열기 버튼을 클릭했을 때
+    openBtn.addEventListener("click", function () {
+      nav.style.top = "20vh";
+    })
+
+    // 터치중일 때
+    drawerHandle.addEventListener("touchmove", function (e) { // e: 이벤트 객체
+
+      // 손가락과 뷰포트 탑사이의 거리(y축)
+      var clientY = e.touches[0].clientY;
+
+      console.log(clientY);
+
+      // innerHeight: 뷰포트의 높이
+      TOP = clientY / window.innerHeight * 100;
+
+      nav.style.top = TOP + "vh";
+    })
+
+    // 터치가 끝났을 때
+    drawerHandle.addEventListener("touchend", function () {
+      console.log("터치 끝");
+
+      if (TOP > 50) { // 핸들을 반 이상 내렸을 경우
+        nav.style.top = "100vh"
+      } else {
+        nav.style.top = "20vh"
       }
     })
 

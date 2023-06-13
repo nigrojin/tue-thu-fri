@@ -765,7 +765,7 @@
     })
   </script> -->
 
-  <style>
+  <!-- <style>
     #main {
       width: 300px;
       height: 300px;
@@ -830,7 +830,232 @@
 
       previousIndex = thisIndex;
     }
+  </script> -->
 
+  <!-- <h1>Carousel</h1>
+
+  <style>
+    /* 전체선택자 */
+    * { 
+      box-sizing: border-box;
+    }
+
+    .section {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+     /* images */
+     #container {
+      height: 200px;
+      display: inline-flex;
+      transition: 0.2s;
+    }
+
+    .item {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* buttons */
+    #prev-btn, #next-btn {
+      position: absolute;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      color: #fff;
+      border: none;
+    }
+
+    #prev-btn {
+      top: 0;
+      left: 0;
+    }
+
+    #next-btn {
+      top: 0;
+      right: 0;
+    }
+
+    /* indicator */
+    .indicator {
+      position: absolute;
+      bottom: 0.25rem;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .dot {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    /* toggle class */
+    .hidden {
+      visibility: hidden
+    }
+
+    .active {
+      opacity: 1;
+    }
+  </style>
+
+  <div class="section">
+    <div id="container">
+      <img class="item" src="https://tvvmvn.github.io/front-end/img/Simba.webp" alt="">
+      <img class="item" src="https://tvvmvn.github.io/front-end/img/Timon.webp" alt="">
+      <img class="item" src="https://tvvmvn.github.io/front-end/img/Pumbaa.webp" alt="">
+    </div>
+
+    <button id="prev-btn" class="hidden" onclick="navigateTo(-1)">
+      &#10094;
+    </button>
+    <button id="next-btn" onclick="navigateTo(1)">
+      &#10095;
+    </button>
+
+    <div class="indicator">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <script>
+    var container = document.getElementById('container');
+    var prevBtn = document.getElementById('prev-btn');
+    var nextBtn = document.getElementById('next-btn');
+    var dots = document.getElementsByClassName('dot');
+    var imageWidth = 200;
+    var previousIndex = 0;
+    var thisIndex = 0;
+
+    // console.log(dots);
+
+    function navigateTo(data) {
+      thisIndex += data;
+
+      console.log("현재 인덱스:", thisIndex);
+      // 이전 시점의 변수 값에 접근할 수 있다
+      console.log("이전 인덱스:", previousIndex);
+
+      container.style.transform = `translateX(-${thisIndex * imageWidth}px)`;
+
+      // 마지막 이미지 일 경우 다음버튼 처리
+      if (thisIndex === 2) { // 마지막 이미지인 경우
+        nextBtn.classList.add("hidden");
+      } else { // 마지막 이미지가 아닌 경우
+        nextBtn.classList.remove("hidden");
+      }
+
+      // 이전 버튼 처리
+      if (thisIndex !== 0) { // 첫번째 이미지가 아닌 경우
+        prevBtn.classList.remove("hidden");
+      } else { // 첫번째 이미지인 경우
+        prevBtn.classList.add("hidden")
+      }
+
+      // Indicator
+      dots[thisIndex].classList.add("active");
+      dots[previousIndex].classList.remove("active");
+
+      previousIndex = thisIndex;
+    }
+  </script> -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* main image */
+    .section {
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+
+    #main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* thumbnails */
+    .container {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      bottom: 1rem;
+      width: 100%;
+    }
+
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+
+    /* toggle class */
+    .active {
+      outline: 2px solid #0bf;
+      z-index: 10;
+    }
+  </style>
+
+  <h1>Auto Gallery</h1>
+
+  <div class="section">
+    <!-- main image -->
+    <img src="https://tvvmvn.github.io/front-end/img/Simba.webp" alt="" id="main">
+    
+    <!-- thumbnails -->
+    <div class="container">
+      <img class="thumbnail active" src="https://tvvmvn.github.io/front-end/img/Simba.webp" alt="Simba">
+      <img class="thumbnail" src="https://tvvmvn.github.io/front-end/img/Timon.webp" alt="Timon">
+      <img class="thumbnail" src="https://tvvmvn.github.io/front-end/img/Pumbaa.webp" alt="Pumbaa">
+    </div>
+  </div>
+
+  <script>
+    var thumbnails = document.getElementsByClassName('thumbnail');
+    var caption = document.getElementById('caption');
+    var main = document.getElementById('main');
+    var thisIndex = 0;
+    var previousIndex = 0;
+
+    setInterval(navigate, 3000);
+
+    console.log(thumbnails); // HTMLCollection(length)
+
+    function navigate() {
+      thisIndex++;
+
+      if (thisIndex === thumbnails.length) {
+        thisIndex = 0;
+      }
+
+      console.log("현재 인덱스:", thisIndex);
+      console.log("이전 인덱스:", previousIndex);
+      
+
+      // 썸네일의 소스를 메인 이미지의 소스에 전달한다
+      main.src = thumbnails[thisIndex].src;
+
+      // active 클래스 변경
+      thumbnails[thisIndex].classList.add("active");
+      thumbnails[previousIndex].classList.remove("active");
+
+      previousIndex = thisIndex;
+    }
   </script>
 
 </body>

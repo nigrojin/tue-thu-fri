@@ -1264,7 +1264,7 @@
   </script> -->
 
 
-  <style>
+  <!-- <style>
     #form {
       width: 20rem;
     }
@@ -1348,31 +1348,196 @@
 
       // 이름 유효성 검사
       if (!fname.trim()) {
-        fnameError.classList.remove('hidden');
-        fnameError.textContent = '이름은 필수입니다';
+        errorHandler("이름은 필수입니다", fnameError);
       } else if (fname.match(/[^a-zA-Z]/)) { // 영어가 아닐 경우
-        fnameError.classList.remove('hidden');
-        fnameError.textContent = '올바르지 않은 이름입니다';
+        errorHandler("올바르지 않은 이름입니다", fnameError);
       } else {
-        fnameError.classList.add('hidden');
+        errorHandler(null, fnameError);
       }
 
       // 성 유효성 검사
       if (!lname.trim()) {
-        lnameError.classList.remove('hidden');
-        lnameError.textContent = '성은 필수입니다';
+        errorHandler("성은 필수입니다", lnameError);
       } else {
-        lnameError.classList.add('hidden');
+        errorHanlder(null, lnameError);
       }
 
       // 이메일 검사
       if (!email.trim()) {
-        emailError.classList.remove('hidden');
-        emailError.textContent = '이메일은 필수입니다';
+        errorHandler("이메일은 필수입니다", emailError);
       } else {
-        emailError.classList.add('hidden');
+        errorHandler(null, emailError);
       }
     })
+
+    // 에러를 처리하는 함수
+    function errorHandler(error, container) {
+      if (error) {
+        container.classList.remove("hidden");
+        container.textContent = error;
+      } else {
+        container.classList.add("hidden");
+      }
+    }
+  </script> -->
+
+
+  <!-- <h1>Drag and Drop</h1>
+
+  <style>
+    #drop-zone {
+      border: 4px dashed #ddd;
+      width: 200px;
+      height: 100px;
+      padding: 1rem;
+    }
+  </style>
+
+  <div id="drop-zone">
+    <p>파일을 <i>여기에</i>드래그하세요</p>
+  </div>
+
+  <script>
+    var dropZone = document.getElementById("drop-zone");
+
+    // dragover: 드래그 중일 때
+    dropZone.addEventListener('dragover', dragOverHandler);
+    // drop: 드롭 할때
+    dropZone.addEventListener('drop', dropHandler);
+
+    function dropHandler(e) {
+      // dragover 이벤트에서 기본값(default): 브라우저가 파일을 연다
+      e.preventDefault(); // 파일 열기를 실행하지 않는다
+
+      console.log("드랍!")
+
+      // 업로드한 파일에 접근한다
+      var files = e.dataTransfer.files;
+
+      console.log(files);
+
+      // 여기서 서버 전송 처리
+
+      // 성공 메시지
+      alert("업로드되었습니다");
+    }
+
+    function dragOverHandler(e) {
+      // drop 이벤트에서 기본값(default): 브라우저가 파일을 연다
+      e.preventDefault(); // 파일 열기를 실행하지 않는다
+
+      console.log("드래그 중")
+    }
+  </script> -->
+
+
+  <!-- <style>
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+
+  <h1>테마 선택</h1>
+
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    Mollitia voluptas architecto optio totam dolore perspiciatis qui nihil?
+    Nesciunt eligendi id impedit, expedita earum, enim veniam laudantium,
+    pariatur quasi repellendus est.
+  </p>
+
+  <input type="checkbox" id="checkbox" name="">
+  <label for="checkbox">
+    Dark Mode
+  </label>
+
+  <script>
+    var checkbox = document.getElementById("checkbox");
+
+    // localStorage.getItem(key): 로컬스토리지에 저장된 데이터에 접근한다
+    var isDarkMode = localStorage.getItem("darken");
+
+    console.log(isDarkMode);
+
+    // 페이지가 처음 로드되었을 때
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+      checkbox.checked = true;
+    }
+
+    // checkbox에서 change이벤트: 체크상태가 바뀔 때
+    checkbox.addEventListener("change", function (e) {
+      // e.target: checkbox(input)
+      var checked = e.target.checked;
+
+      if (checked) {
+        document.body.classList.add("dark-mode");
+        // localStorage: 브라우저가 제공하는 저장공간
+        // localStorage.setItem(key, value): 로컬스토리지에 데이터를 저장한다
+        localStorage.setItem("darken", new Date().toLocaleString());
+      } else {
+        document.body.classList.remove("dark-mode");
+        // localStorage.removeItem(key): 로컬스토리지에 저장된 데이터를 삭제한다
+        localStorage.removeItem("darken")
+      }
+    })
+  </script> -->
+
+  <h1>더이상 보지않기</h1>
+
+  <style>
+    #promotion {
+      background-color: #eee;
+      padding: 1rem;
+    }
+
+    #close-btn {
+      float: right;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #block-btn {
+      padding: 0.5rem 0.75rem;
+      border: none;
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+
+  <div id="promotion">
+    <span id="close-btn">&times;</span>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+    <button id="block-btn">더 이상 보지않기</button>
+  </div>
+
+  <script>
+    var closeBtn = document.getElementById('close-btn');
+    var blockBtn = document.getElementById('block-btn');
+    var promotion = document.getElementById('promotion');
+
+    // 처음 페이지가 로드되었을 때
+    if (localStorage.getItem("blockedAt")) {
+      promotion.classList.add("hidden");
+    }
+
+    // 닫기 버튼을 클릭했을 때
+    closeBtn.addEventListener("click", function () {
+      promotion.classList.add("hidden");
+    })
+
+    // 블락 버튼을 클릭했을 때
+    blockBtn.addEventListener("click", function () {
+      promotion.classList.add("hidden");
+      localStorage.setItem("blockedAt", new Date().toLocaleString());
+    })
+
   </script>
 
 

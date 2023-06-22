@@ -1484,7 +1484,7 @@
     })
   </script> -->
 
-  <h1>더이상 보지않기</h1>
+  <!-- <h1>더이상 보지않기</h1>
 
   <style>
     #promotion {
@@ -1538,8 +1538,285 @@
       localStorage.setItem("blockedAt", new Date().toLocaleString());
     })
 
-  </script>
+  </script> -->
 
+  <!-- <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #eee;
+    }
+
+    #container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 640px;
+      margin: auto;
+    }
+
+    textarea { 
+      height: 12rem;
+      padding: 1rem;
+      border: none;
+      box-shadow: 0 0 5px #ddd;
+      outline: none;
+      resize: none;
+    }
+    
+    #add-btn {
+      /* position */
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      /* size */
+      width: 4rem;
+      height: 4rem;
+      /* display */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* style */
+      background-color: #aaa;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 4rem;
+      cursor: pointer;
+    }
+
+    #add-btn:hover {
+      background-color: #888;
+    }
+  </style>
+
+  <h1>Sticky Notes</h1>
+
+  <div id="container"></div>
+  <button id="add-btn">+</button>
+
+  <script>
+    var container = document.getElementById("container");
+    var addBtn = document.getElementById("add-btn");
+    // 노트를 저장할 변수
+    var notes = [];
+
+    // 추가 버튼을 클릭하면 노트를 추가한다
+    addBtn.addEventListener("click", addNote);
+    // 페이지가 로드되었을 때
+    window.addEventListener("DOMContentLoaded", getNotes);
+
+    // 노트 리스트를 렌더링 하는 함수
+    function getNotes() {
+      notes = getDocs();
+
+      // 로컬스토리지로부터 가져온 노트 리스트
+      console.log(notes);
+
+      for (var i=0; i<notes.length; i++) {
+        createNoteElement(notes[i].id, notes[i].content);
+      }
+    }
+
+    // 로컬스토리지에서 노트데이터를 불러오는 함수
+    function getDocs() {
+      // 로컬스토리지에 노트데이터가 없을 때
+      if (!localStorage.getItem("noteStorage")) {
+        // 노트데이터를 생성한다
+        localStorage.setItem("noteStorage", "[]");
+      }
+
+      // 노트데이터를 객체로 변환 후 리턴한다
+      return JSON.parse(localStorage.getItem("noteStorage"));
+    };
+
+    // 로컬스토리지를 동기화하는 함수
+    function saveDoc(notes) {
+      localStorage.setItem("noteStorage", JSON.stringify(notes));
+    };
+
+    // 노트 추가
+    function addNote() {
+      // 새로운 노트 객체
+      // Date.now: 현재 시간을 ms단위로 리턴한다
+      var newNote = { id: "n" + Date.now(), content: "" };
+
+      // 노트 리스트에 새노트를 추가한다
+      notes.push(newNote);
+
+      // 로컬스토리지 동기화
+      saveDoc(notes);
+
+      // 렌더링을 위해 새노트 객체를 전달한다
+      createNoteElement(newNote.id, newNote.content);
+    }
+
+    // 노트 편집
+    function editNote(id, content) {
+      console.log(id, content);
+
+      // notes 변수를 동기화한다
+      for (var i=0; i<notes.length; i++) {
+        // 전달받은 id와 일치하는 id를 가진 노트객체의 content를 전달받은 content로 업데이트 한다
+        if (notes[i].id === id) {
+          notes[i].content = content;
+        }
+      }
+
+      // 로컬 스토리지 동기화
+      saveDoc(notes);
+    }
+
+    // 노트 삭제
+    function deleteNote(id, noteElement) {
+      console.log(id, noteElement);
+
+      // 전달받은 id와 일치하는 id를 가진 노트객체를 notes변수에서 제거한다
+      for(var i=0; i<notes.length; i++) {
+        if (notes[i].id === id) {
+          // 배열에서 index가 i에 해당하는 아이템을 삭제한다
+          notes.splice(i, 1);
+        }
+      }
+
+      // 로컬 스토리지 동기화
+      saveDoc(notes);
+
+      // 뷰에서 note엘리먼트를 제거한다
+      // removeChild(삭제할 child): 컨테이너에서 해당하는 child를 삭제한다
+      container.removeChild(noteElement);
+    }
+
+    // 렌더링 처리
+    function createNoteElement(id, content) {
+      // textarea 엘리먼트를 생성한다
+      var noteElement = document.createElement("textarea");
+
+      // 엘리먼트의 value 속성
+      noteElement.value = content;
+
+      // 엘리먼트에 이벤트리스너를 연결한다
+      noteElement.addEventListener("keyup", (e) => editNote(id, e.target.value));
+      // 더블클릭 이벤트
+      noteElement.addEventListener("dblclick", (e) => deleteNote(id, e.target));
+
+      // container의 첫번째 자식으로 noteElement를 추가한다
+      container.prepend(noteElement);
+    }
+  </script> -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    #canvas {
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+  </style>
+
+  <h1>JS Image Editor</h1>
+
+  <p>
+    <input type="file" name="" id="file-input">
+  </p>
+
+  <canvas id="canvas"></canvas>
+
+  <nav>
+    <label for="brightness">Brigtness</label>
+    <input type="range" name="brightness" id="brightness" min="0" max="200" value="100">
+  
+    <label for="saturation">Saturation</label>
+    <input type="range" name="saturation" id="saturation" min="0" max="200" value="100">
+  
+    <label for="inversion">Inversion</label>
+    <input type="range" name="inversion" id="inversion" min="0" max="100" value="0">
+  
+    <label for="blur">Blur</label>
+    <input type="range" name="blur" id="blur" min="0" max="10" value="0">
+  </nav>
+
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var fileInput = document.getElementById('file-input');
+    var brightnessInput = document.getElementById('brightness');
+    var saturationInput = document.getElementById('saturation');
+    var inversionInput = document.getElementById('inversion');
+    var blurInput = document.getElementById('blur');
+    var imgElement = new Image();
+    // 필터값을 저장하는 객체
+    var filter = {};
+
+    // 파일 업로드 이벤트
+    fileInput.addEventListener("change", (e) => {
+      // 선택한 파일 객체
+      var file = e.target.files[0];
+
+      // URL.createObjectURL(객체): blob 파일을 생성 후 파일에 접근 가능한 URL을 리턴한다
+      var src = URL.createObjectURL(file);
+
+      // 이미지의 source에 blob객체의 URL을 할당한다
+      imgElement.src = src;
+    });
+
+    // 이미지 로드 이벤트
+    imgElement.addEventListener("load", (e) => {
+      // 캔버스의 크기를 이미지 크기에 맞춘다
+      canvas.width = imgElement.width;
+      canvas.height = imgElement.height;
+
+      // 캔버스에 이미지를 나타낸다
+      drawImage();
+    });
+
+    // 각 필터의 값 변경 이벤트
+    brightnessInput.addEventListener("change", (e) => {
+      applyFilter("brightness", e.target.value, "%");
+    });
+
+    saturationInput.addEventListener("change", (e) => {
+      applyFilter('saturate', e.target.value, '%');
+    });
+
+    inversionInput.addEventListener("change", (e) => {
+      applyFilter('invert', e.target.value, '%');
+    });
+
+    blurInput.addEventListener("change", (e) => {
+      applyFilter('blur', e.target.value, 'px');
+    });
+
+    // 필터 적용 함수
+    function applyFilter(name, value, unit) {
+      // 필터 객체를 업데이트한다
+      filter[name] = value + unit;
+
+      console.log(filter);
+    };
+
+    // 캔버스에 이미지를 나타내는 함수
+    function drawImage() {
+      // drawImage(표현할 이미지, left, top)
+      ctx.drawImage(imgElement, 0, 0);
+    };
+
+    // 필터를 초기화 하는 함수
+    function initialize() {};
+
+  </script>
 
 </body>
 </html>

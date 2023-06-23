@@ -1707,7 +1707,7 @@
     }
   </script> -->
 
-  <style>
+  <!-- <style>
     * {
       box-sizing: border-box;
     }
@@ -1778,6 +1778,8 @@
       canvas.width = imgElement.width;
       canvas.height = imgElement.height;
 
+      // 필터 초기화
+      initialize();
       // 캔버스에 이미지를 나타낸다
       drawImage();
     });
@@ -1804,7 +1806,22 @@
       // 필터 객체를 업데이트한다
       filter[name] = value + unit;
 
-      console.log(filter);
+      var filter_list = [];
+
+      for (key in filter) {
+        filter_list.push(`${key}(${filter[key]})`);
+      }
+
+      // 문자열 타입의 필터 데이터
+      var filter_str = filter_list.join(" ");
+
+      console.log(filter_str);
+
+      // 캔버스가 요구하는 형식에 맞게 필터데이터를 가공한다
+      ctx.filter = filter_str;
+
+      // 이미지에 필터 적용
+      drawImage();
     };
 
     // 캔버스에 이미지를 나타내는 함수
@@ -1814,9 +1831,119 @@
     };
 
     // 필터를 초기화 하는 함수
-    function initialize() {};
+    function initialize() {
+      // range의 값을 초기화한다
+      brightnessInput.value = 100;
+      saturationInput.value = 100;
+      inversionInput.value = 0;
+      blurInput.value = 0;
 
+      // 필터 객체를 초기화한다
+      filter = {};
+    };
+
+  </script> -->
+
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#posts">Posts</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div id="root"></div>
+
+  <script>
+    // hashchange: hash가 바뀔 때
+    window.addEventListener("hashchange", () => {
+      router();
+    })
+
+    // 요청 URL에 적합한 페이지를 연결한다
+    function router() {
+      // 요청 URL
+      var url = location.hash.substring(1); // hash string에서 hash(#)를 제거한다
+
+      var routes = [
+        // 라우트 객체
+        { path: 'home', element: Home },
+        { path: 'posts', element: Posts },
+        { path: 'post', element: Post },
+        { path: 'contact', element: Contact },
+      ]
+
+      // 요청 URL과 일치하는 path를 가진 라우트 객체의 element를 화면에 렌더링한다
+      for (var i=0; i<routes.length; i++) {
+        var path = routes[i].path;
+
+        // 요청 변수가 있을 경우
+        if (url.indexOf("?") > 0) {
+          // query: 요청변수 저장
+          var query = url.substring(url.indexOf("?"));
+          url = url.substring(url.indexOf("?"), -1);
+        }
+
+        // 라우트의 path와 요청 URL 비교
+        if (path === url) {
+          document
+            .getElementById("root")
+            // 요청변수를 함수에 전달한다
+            .innerHTML = routes[i].element(query); // 렌더링
+        }
+      }
+    }
+
+    // 페이지들
+
+    // 홈
+    function Home() {
+      return (` 
+        <h1>Home</h1>
+        <p>Welcome to my blog.</p>
+      `);
+    }
+
+    // 게시물 리스트
+    function Posts() {
+      // 요청변수: postId
+      return (`
+        <h1>Posts</h1>
+        <ul>
+          <li>
+            <a href="#post?postId=p1">Second post</a>
+          </li>  
+          <li>
+            <a href="#post?postId=p0">First post</a>
+          </li>  
+        </ul>
+      `)
+    }
+
+    // 게시물 상세보기
+    function Post(query) {  
+      return (`
+        <h1>Post</h1>
+        <p>${query}</p>
+      `)
+    }
+    // Contact
+    function Contact() {
+      return (`
+        <h1>Contact</h1>
+        <p>john@example.com</p>
+      `)
+    }
   </script>
+
+
 
 </body>
 </html>

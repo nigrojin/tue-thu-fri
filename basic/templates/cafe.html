@@ -89,7 +89,155 @@
     <p class="my-4 text-lg">
       <span class="font-semibold">Address:</span> 15 Adr street, 5015, NY
     </p>
+
+    <!-- MENU -->
+    <div id="menu" class="py-16">
+      <h1 class="text-2xl text-center tracking-widest">
+        <span class="bg-black text-white px-2">THE MENU</span>
+      </h1>
+    </div>
+
+    <!-- 메뉴판 -->
+    <div class="border bg-white shadow-lg flex flex-wrap px-4 py-2">
+      <!-- tailwind에서 바로 다음에 오는 엘리먼트와 연결할 때 peer 클래스를 사용한다 -->
+      <input type="radio" class="hidden peer/eat" name="menu" id="eat" checked>
+      <label for="eat"
+        class="w-1/2 text-lg text-center font-semibold cursor-pointer peer-checked/eat:bg-neutral-400 peer-checked/eat:text-white">
+        Eat
+      </label>
+
+      <input type="radio" class="hidden peer/drink" name="menu" id="drink">
+      <label for="drink"
+        class="w-1/2 text-lg text-center font-semibold cursor-pointer peer-checked/drink:bg-neutral-400 peer-checked/drink:text-white">
+        Drink
+      </label>
+
+      <!-- MENU: Eat -->
+      <div class="py-4 w-full hidden peer-checked/eat:block">
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Bread Basket</h3>
+          <p class="my-4 text-lg text-gray-500">Assortment of fresh baked fruit breads and muffins 5.50</p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Honey Almond Granola with Fruits</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Natural cereal of honey toasted oats, raisins, almonds and dates 7.00
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Belgian Waffle</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Vanilla flavored batter with malted flour 7.50
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Scrambled eggs</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Scrambled eggs, roasted red pepper and garlic, with green onions 7.50
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Blueberry Pancakes</h3>
+          <p class="my-4 text-lg text-gray-500">
+            With syrup, butter and lots of berries 8.50
+          </p>
+        </div>
+      </div>
+
+      <!-- MENU: Drink -->
+      <div class="py-4 w-full hidden peer-checked/drink:block">
+        <div class="py-4">
+          <h3 class="text-xl font-semibold my-4">Coffee</h3>
+          <p class="mt-4 text-lg text-gray-500 my-4">
+            Regular coffee 2.50
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="text-xl font-semibold my-4">Chocolato</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Chocolate espresso with milk 4.50
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Corretto</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Whiskey and coffee 5.00
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Iced tea</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Hot tea, except not hot 3.00
+          </p>
+        </div>
+        <div class="py-4">
+          <h3 class="my-4 text-xl font-semibold">Soda</h3>
+          <p class="my-4 text-lg text-gray-500">
+            Coke, Sprite, Fanta, etc. 2.50
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <img class="mt-8 grayscale-[80%]" src="https://www.w3schools.com/w3images/coffeehouse2.jpg" alt="">
+
+    <!-- WHERE -->
+    <div id="where" class="py-16">
+      <h1 class="text-2xl text-center tracking-widest">
+        <span class="bg-black text-white px-2">WHERE TO FIND US</span>
+      </h1>
+    </div>
+
+    <p class="text-lg my-4">
+      Find us at some address at some place.
+    </p>
+
+    <img class="mt-4 grayscale-[80%]" src="https://www.w3schools.com/w3images/map.jpg" alt="">
+
+    <p class="my-4 text-lg">
+      <span class="bg-black text-white px-2 py-1">FYI!</span>
+      We offer full-service catering for any event, large or small.
+      We understand your needs and we will cater the food to
+      satisfy the biggerst criteria of them all, both look and taste.
+    </p>
+
+    <form action="" class="">
+      <p class="my-4 text-lg">
+        Reserve a table, ask for today's special or just send us a message:
+      </p>
+      <div class="mb-4">
+        <label>
+          <input type="text" class="border text-lg px-2 py-4 w-full" placeholder="Name">
+        </label>
+      </div>
+      <div class="mb-4">
+        <label>
+          <input type="number" class="border text-lg px-2 py-4 w-full" placeholder="How many people">
+        </label>
+      </div>
+      <div class="mb-4">
+        <label>
+          <input type="date" class="border text-lg px-2 py-4 w-full" value="2023-01-16">
+        </label>
+      </div>
+      <div class="mb-4">
+        <label>
+          <input type="text" class="border text-lg px-2 py-4 w-full" placeholder="Message / Special requirements">
+        </label>
+      </div>
+
+      <button class="bg-black text-lg text-white px-4 py-2 hover:bg-gray-400 hover:text-black">
+        SEND MESSAGE
+      </button>
+    </form>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 bg-gray-200 py-16">
+    <p class="text-center text-lg">
+      Powered by <a href="#" class="underline">Name</a>
+    </p>
+  </footer>
 
 </body>
 </html>

@@ -168,7 +168,6 @@
 
     <!-- CARD -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
       <div class="bg-gray-100">
         <img class="w-full" src="https://www.w3schools.com/w3images/team2.jpg" alt="">
         <div class="px-4">
@@ -202,9 +201,145 @@
           </p>
         </div>
       </div>
-
     </div>
 
+    <!-- PACKAGES -->
+    <div id="packages" class="mt-24">
+      <h2 class="text-gray-400 text-5xl my-8 font-semibold">Packages</h2>
+      <hr class="w-16 border-t-8 border-t-gray-400 rounded">
+    </div>
+
+    <p class="my-4">
+      Some text our prices. Lorem ipsum consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure
+    </p>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <ul class="bg-gray-100">
+        <li class="bg-gray-600 p-8">
+          <h3 class="text-2xl text-white text-center">Basic</h3>
+        </li>
+        <li class="text-center p-4 border-b">
+          Floorplanning
+        </li>
+        <li class="text-center p-4 border-b">
+          10 hours support
+        </li>
+        <li class="text-center p-4 border-b">
+          Photography
+        </li>
+        <li class="text-center p-4 border-b">
+          20% furniture discount
+        </li>
+        <li class="text-center p-4 border-b">
+          Good deals
+        </li>
+        <li class="p-4 border-b">
+          <span class="block text-center text-3xl my-4">$ 199</span>
+          <span class="block text-center text-gray-400">per room</span>
+        </li>
+        <li class="p-4 text-center">
+          <button class="px-4 py-2 bg-white hover:bg-gray-600 hover:text-white">
+            Sign Up
+          </button>
+        </li>
+      </ul>
+
+      <ul class="bg-gray-100">
+        <li class="bg-red-600 p-8">
+          <h3 class="text-2xl text-white text-center">Pro</h3>
+        </li>
+        <li class="text-center p-4 border-b">
+          Floorplanning
+        </li>
+        <li class="text-center p-4 border-b">
+          10 hours support
+        </li>
+        <li class="text-center p-4 border-b">
+          Photography
+        </li>
+        <li class="text-center p-4 border-b">
+          50% furniture discount
+        </li>
+        <li class="text-center p-4 border-b">
+          GREAT deals
+        </li>
+        <li class="p-4 border-b">
+          <span class="block text-center text-3xl my-4">$ 249</span>
+          <span class="block text-center text-gray-400">per room</span>
+        </li>
+        <li class="p-4 text-center">
+          <button class="px-4 py-2 text-white bg-red-600 hover:bg-gray-600">
+            Sign Up
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="mt-24">
+      <h2 class="text-gray-400 text-5xl my-8 font-semibold">Contact.</h2>
+      <hr class="w-16 border-t-8 border-t-gray-400 rounded">
+    </div>
+    <p class="my-4">
+      Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img class="w-full h-80 object-cover" src="https://www.w3schools.com/w3images/map.jpg" alt="">
+      <form action="#">
+        <div class="mb-4">
+          <label for="" class="font-semibold">Name</label>
+          <input type="text" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+          <label for="" class="font-semibold">Email</label>
+          <input type="text" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+          <label for="" class="font-semibold">Message</label>
+          <input type="text" class="border p-2 w-full">
+        </div>
+
+        <button class="bg-gray-600 text-white p-2 w-full hover:bg-gray-800">
+          Send Message
+        </button>
+      </form>
+    </div>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-24 p-12 bg-gray-200">
+    <p class="text-right">
+      Powered by <a href="#" class="underline">Me</a>
+    </p>
+  </footer>
+
+  <script>
+    // NAV BAR
+    openBtn.addEventListener('click', () => {
+      sideBar.classList.remove('hidden');
+      overLay.classList.remove('hidden');
+    })
+
+    overLay.addEventListener('click', () => {
+      sideBar.classList.add('hidden');
+      overLay.classList.add('hidden');
+    })
+
+    // MODAL
+    function openModal(el) {
+      modalImage.src = el.src;
+      modal.classList.remove('hidden')
+    }
+
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden')
+    })
+  </script>
+
 </body>
 </html>
